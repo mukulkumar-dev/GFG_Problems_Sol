@@ -42,12 +42,13 @@ class Solution {
     int maxSubarraySum(int[] arr) {
         // Your code here
         int maxSum=Integer.MIN_VALUE;
-        int current=0;
-        for(int num:arr){
-            current+=num;
-            maxSum=Math.max(maxSum,current);
-            
-            if(current<0) current=0;
+        int sum=0;
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            maxSum=Math.max(sum,maxSum);
+            if(sum<0){
+                sum=0;
+            }
         }
         return maxSum;
     }
